@@ -1,2 +1,10 @@
-<p>shop works!</p>
-<app-product-list></app-product-list>
+<h3>Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency }}</span>
+</div>
+
+<button *ngIf="items.length > 0" (click)="clearCart()">
+  <span>Eliminar productos</span>
+</button>

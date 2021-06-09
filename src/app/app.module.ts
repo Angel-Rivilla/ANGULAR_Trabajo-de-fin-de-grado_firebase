@@ -13,6 +13,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 
 //MATERIALES
+import {HttpClientModule } from '@angular/common/http';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -54,6 +55,7 @@ import { environment } from 'src/environments/environment';
     RegisterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -80,11 +82,7 @@ import { environment } from 'src/environments/environment';
     MatDividerModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    //AngularFirestoreModule,
-    //AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    
-
   ],
   providers: [],
   bootstrap: [AppComponent]

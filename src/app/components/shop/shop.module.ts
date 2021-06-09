@@ -6,6 +6,7 @@ import { ShopComponent } from './shop.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 
 
@@ -15,7 +16,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ShopComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ShippingComponent
   ],
   imports: [
     CommonModule,
