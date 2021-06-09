@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { AuthService } from 'src/app/shared/services/auth.service';
 //import { UserI } from 'src/app/shared/services/user.interface';
 import{FormGroup,FormControl} from '@angular/forms'
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 
@@ -17,12 +18,19 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
   
-  constructor(private authSvc:AuthService){}
+  constructor(private authSvc:AuthService,private router: Router){}
   ngOnInit(): void {}
   
-  onLogin(){
+  async onLogin(){
     const {email, password} = this.loginForm.value;
-    this.authSvc.login(email,password);
+    try{
+      const user = this.authSvc.login(email,password);
+      if(user){
+          this.router.navigate(['home']);
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }
