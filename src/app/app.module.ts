@@ -37,8 +37,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import{ReactiveFormsModule} from '@angular/forms';
 
 import {AngularFireAuthModule} from '@angular/fire/auth';
-//import {AngularFirestoreModule} from '@angular/fire/firestore';
-//import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire'
 import { environment } from 'src/environments/environment';
 
@@ -84,7 +82,8 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     //AngularFirestoreModule,
     //AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    
 
   ],
   providers: [],

@@ -18,7 +18,7 @@
       <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
 
         <li class="nav-item" *ngIf="user">
-          <a class="nav-link">Shop
+          <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
