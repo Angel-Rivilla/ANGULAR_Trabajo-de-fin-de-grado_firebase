@@ -4,8 +4,8 @@ import{first} from 'rxjs/operators'
 //import {UserI} from '../services/user.interface';
 import {AngularFireAuth} from '@angular/fire/auth';
 //import {Observable} from 'rxjs'
-//import{auth} from 'firebase/app';
-//import{User} from 'firebase';
+//çimport{firebase} from 'firebase/app';
+//import{auth} from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
   //public user:User;
 
   //public userData:Observable<firebase.User>;
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth) { }
   
   async logout(){
     await this.afAuth.signOut();
