@@ -15,17 +15,17 @@ import{ AngularFireAuth} from '@angular/fire/auth';
 export class SidenavComponent implements OnInit {
 
 public isLogged = false;
-//public user:any;
+public user:any;
 public user$: Observable<any> = this.authSvc.afAuth.user;
 
   constructor(private authSvc: AuthService, private router:Router){}
   async ngOnInit(){
 
     
-    /*this.user = await this.authSvc.getCurrentUser();
+    this.user = await this.authSvc.getCurrentUser();
     if(this.user){
       this.isLogged=true;
-    }*/
+    }
   }
 
   async onLogout(){
