@@ -34,6 +34,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import{ReactiveFormsModule} from '@angular/forms';
+
 //import {AngularFireAuth} from '@angular/fire/auth';
 //import {AngularFirestoreModule} from '@angular/fire/firestore';
 //import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -77,6 +79,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
+    ReactiveFormsModule
     //AngularFireAuth,
     //AngularFirestoreModule,
     //AngularFireStorageModule,

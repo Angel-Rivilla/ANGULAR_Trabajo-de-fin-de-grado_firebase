@@ -2,20 +2,21 @@
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
         <form>
-        <p>
-            <mat-form-field>
-                <input type="text" matInput placeholder="Username"/>
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field>
-                <input type="password" matInput placeholder="Password"/>
-            </mat-form-field>
-        </p>
-        <button type="submit" mat-raised-button color="primary">Login</button>
-        <a routerLink = "../register" class="btn btn-link">Register</a>
+        
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <div class="form-group mt-3">
+                <p>Create an account <a [routerLink] = "['/user/register']">Create account</a></p>
+            </div>
         </form>
+        
+
     </mat-card-content>
 </mat-card>
+
+
 
 

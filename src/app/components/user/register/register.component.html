@@ -2,22 +2,17 @@
     <mat-card-title>Register</mat-card-title>
     <mat-card-content>
         <form>
-        <p>
-            <mat-form-field>
-                <input type="text" matInput placeholder="Username"/>
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field>
-                <input type="text" matInput placeholder="Email"/>
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field>
-                <input type="password" matInput placeholder="Password"/>
-            </mat-form-field>
-        </p>
-        <button type="submit" mat-raised-button color="primary">Register</button>
+        
+            <div class="form-group">
+                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
+                <input type="contraseña" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            </div>
+        
+            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            <div class="form-group mt-3">
+                <p> Do you have an account? <a [routerLink] = "['/user/login']">Login</a></p>
+            </div>
         </form>
     </mat-card-content>
 </mat-card>
