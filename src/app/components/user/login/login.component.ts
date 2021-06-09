@@ -11,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  
 registerStatus = 0;
+
  // constructor(private authSvc: AuthService) { }
 
   ngOnInit(): void {

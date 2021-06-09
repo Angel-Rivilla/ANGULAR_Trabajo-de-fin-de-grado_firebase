@@ -13,8 +13,7 @@
             </mat-form-field>
         </p>
         <button type="submit" mat-raised-button color="primary">Login</button>
-        <button (click) = "registerStatus=1" type="submit" mat-raised-button color="primary">Register</button>
-            <div *ngIf = "registerStatus == 1"><app-register></app-register></div>
+        <a routerLink = "../register" class="btn btn-link">Register</a>
         </form>
     </mat-card-content>
 </mat-card>
