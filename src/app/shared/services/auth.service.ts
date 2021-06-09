@@ -9,7 +9,7 @@ import {Observable} from 'rxjs'
 })
 export class AuthService {
 
-  //public userData: Observable<firebase.User>;
+  //public userData:Observable<firebase.User>;
   constructor(private afAuth: AngularFireAuth) { }
   loginByEmail(user:UserI){
     const {email,password} = user;
