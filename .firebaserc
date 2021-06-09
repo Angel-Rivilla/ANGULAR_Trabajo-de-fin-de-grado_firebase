@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-ng-580d2": {
+      "hosting": {
+        "apptfg": [
+          "login-ng-580d2"
+        ]
+      }
+    }
+  }
+}
