@@ -1,12 +1,11 @@
 <mat-card>
     <mat-card-title>Register</mat-card-title>
     <mat-card-content>
-        <form>
+        <form [formGroup] ="registerForm" (ngSubmit)="onRegister()">
         
             <div class="form-group">
-                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
-                <input type="contraseña" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" formControlName="email"/>
+                <input type="contraseña" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" formControlName="password"/>
             </div>
         
             <button type="submit" class="btn btn-primary btn-lg">Register</button>

@@ -1,27 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 //import { AuthService } from 'src/app/shared/services/auth.service';
 //import { UserI } from 'src/app/shared/services/user.interface';
-
+import{FormGroup,FormControl} from '@angular/forms'
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
-
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
   
-registerStatus = 0;
-
- // constructor(private authSvc: AuthService) { }
-
-  ngOnInit(): void {
-    //const user: UserI ={
-     // email: 'bezael@me.com',
-      //password: '123456'
-    };
-    //this.authSvc.loginByEmail(user);
+  constructor(private authSvc:AuthService){}
+  ngOnInit(): void {}
+  
+  onLogin(){
+    const {email, password} = this.loginForm.value;
+    this.authSvc.login(email,password);
   }
+
+}
 
 

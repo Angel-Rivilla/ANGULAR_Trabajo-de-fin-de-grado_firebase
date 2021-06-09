@@ -36,10 +36,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import{ReactiveFormsModule} from '@angular/forms';
 
-//import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 //import {AngularFirestoreModule} from '@angular/fire/firestore';
 //import {AngularFireStorageModule} from '@angular/fire/storage';
-//import {AngularFireModule} from '@angular/fire'
+import {AngularFireModule} from '@angular/fire'
+import { environment } from 'src/environments/environment';
 
 
 
@@ -79,11 +80,11 @@ import{ReactiveFormsModule} from '@angular/forms';
     MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
-    ReactiveFormsModule
-    //AngularFireAuth,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
     //AngularFirestoreModule,
     //AngularFireStorageModule,
-    //AngularFireModule
+    AngularFireModule.initializeApp(environment.firebaseConfig)
 
   ],
   providers: [],
