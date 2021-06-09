@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 //COMPONENTES
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
 
 //MATERIALES
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -31,9 +34,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { ContactComponent } from './components/contact/contact.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { RegisterComponent } from './components/user/register/register.component';
+//import {AngularFireAuth} from '@angular/fire/auth';
+//import {AngularFirestoreModule} from '@angular/fire/firestore';
+//import {AngularFireStorageModule} from '@angular/fire/storage';
+//import {AngularFireModule} from '@angular/fire'
+
 
 
 
@@ -71,7 +76,11 @@ import { RegisterComponent } from './components/user/register/register.component
     MatCommonModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    //AngularFireAuth,
+    //AngularFirestoreModule,
+    //AngularFireStorageModule,
+    //AngularFireModule
 
   ],
   providers: [],
