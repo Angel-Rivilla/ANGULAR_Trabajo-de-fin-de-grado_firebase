@@ -7,6 +7,7 @@ import { Product } from './product-list/products';
 })
 export class ShopService {
   items: Product[] = [];
+  
 
   addToCart(product: Product) {
     this.items.push(product);
@@ -20,6 +21,8 @@ export class ShopService {
     this.items = [];
     return this.items;
   }
+  
+  
 
   getShippingPrices() {
     return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
