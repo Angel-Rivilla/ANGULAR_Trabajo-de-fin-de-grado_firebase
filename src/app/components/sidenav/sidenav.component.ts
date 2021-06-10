@@ -22,7 +22,8 @@ opened = false;
 
   fillerNav = [
     {name: "Home", route: "", icon: "home"},
-    {name: "Shop", route: "shop", icon: "credit_card"}
+    
+
   ]
 
   constructor(private authSvc: AuthService, private router:Router){}

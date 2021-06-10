@@ -1,0 +1,9 @@
+.viewContainer {
+    margin-top:5px;
+    margin: 20px;
+    width: 90%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
