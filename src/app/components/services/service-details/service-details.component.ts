@@ -20,6 +20,7 @@ export class ServiceDetailsComponent implements OnInit {
     }
   };
 
+
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state;

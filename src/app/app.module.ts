@@ -11,6 +11,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
+import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
+import { ServicesServicesComponent } from './components/services/services/services.component';
+import { ServiceFormComponent } from './components/services/service-form/service-form.component';
+import { ServiceAddComponent } from './components/services/service-add/service-add.component';
 
 
 
@@ -45,9 +50,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireModule} from '@angular/fire'
 import { environment } from 'src/environments/environment';
-import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
-import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
-import { ServicesServicesComponent } from './components/services/services/services.component';
+
 
 
 
@@ -62,8 +65,10 @@ import { ServicesServicesComponent } from './components/services/services/servic
     LoginComponent,
     RegisterComponent,
     ServicesServicesComponent,
+    ServiceFormComponent,
     ServiceDetailsComponent,
-    ServiceEditComponent
+    ServiceEditComponent,
+    ServiceAddComponent
   ],
   imports: [
     MatTableModule,

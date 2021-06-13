@@ -12,13 +12,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { ServiceEditComponent } from './service-edit/service-edit.component';
 import { ServiceDetailsComponent } from './service-details/service-details.component';
-import { BrowserModule } from '@angular/platform-browser'
+import { BrowserModule } from '@angular/platform-browser';
+import { ServiceFormComponent } from './service-form/service-form.component';
+import { ServiceAddComponent } from './service-add/service-add.component'
 
 @NgModule({
   declarations: [
     ServicesComponent,
     ServiceEditComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    ServiceFormComponent,
+    ServiceAddComponent
   ],
   imports: [
     BrowserModule,
