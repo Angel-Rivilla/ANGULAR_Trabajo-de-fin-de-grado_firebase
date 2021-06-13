@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import {ServiceInterface} from './services'
+import {ServiceInterface} from './services.interface'
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore'
 import {Observable} from 'rxjs';
 
@@ -22,17 +22,7 @@ service:Observable<ServiceInterface> | null | undefined;
     this.serviceCollection.add(service);
 
   }
-  getAllService():Observable<ServiceInterface[]>{
-    this.services = this.serviceCollection.snapshotChanges().pipe(map(changes => {
-      return changes.map(action => {
-        const data = action.payload.doc.data() as ServiceInterface;
-        data.id = action.payload.doc.id;
-        return data;
-      });
-    }));
-    return this.services;
-
-  }
+  
   
  /* getOneService(idService: string){
     this.serviceDoc = this.afs.doc<ServiceInterface>(`services/${idService}`);
@@ -47,13 +37,6 @@ service:Observable<ServiceInterface> | null | undefined;
     }));
   }*/
 
-  updateService(service: ServiceInterface){
-    this.serviceDoc = this.afs.doc(`recetas/${service.id}`);
-    this.serviceDoc.update(service);
-  }
-  deleteService(service: ServiceInterface){
-    this.serviceDoc = this.afs.doc(`recetas/${service.id}`);
-    this.serviceDoc.delete();
-  }
+  
 
 }

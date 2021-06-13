@@ -6,16 +6,16 @@
     <div class= "card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                Nombre del servicio : <H5> Servicion personal de asistente </H5>
+                Nombre del servicio : <H5> {{servicio.nombre}} </H5>
             </li>
             <li class="list-group-item">
-                Localización : <H5> Alicante, Puerto </H5>
+                Localización : <H5> {{servicio.localizacion}} </H5>
             </li>
             <li class="list-group-item">
-                Precio del servicio : <H5> 5 euros/hora </H5>
+                Precio del servicio : <H5> {{servicio.precio}} </H5>
             </li>
             <li class="list-group-item">
-                Valoración : <H5> 4/5 </H5>
+                Valoración : <H5> {{servicio.valoracion}} </H5>
             </li>
         </ul>
     </div>
@@ -24,6 +24,4 @@
         <button type="button" class="btn btn-danger m-1 btn-sm" (click)= "onDelete()">Borrar</button>
     </div>
 </div>
-
 <button type="button" class="btn btn-dark m-2 btn-sm" (click)= "onGoBackToList()">Volver al listado</button>
-

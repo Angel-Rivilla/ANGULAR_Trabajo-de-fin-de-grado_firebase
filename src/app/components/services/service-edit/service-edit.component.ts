@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ServiceEditComponent implements OnInit {
 
-  value;
+  servicio;
   servicesForm: FormGroup;
 
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();
-    this.value = navigation?.extras?.state;
+    this.servicio = navigation?.extras?.state;
     this.servicesForm = new FormGroup({
       nombre: new FormControl(),
       localizacion: new FormControl(),
@@ -25,6 +25,13 @@ export class ServiceEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+
+    if(typeof this.servicio === 'undefined'){
+      this.router.navigate(['services']);
+    } else {
+      this.servicesForm.patchValue(this.servicio);
+    }
+
   }
 
   onSave(): void {
@@ -39,5 +46,9 @@ export class ServiceEditComponent implements OnInit {
       precio: ['', [Validators.required]],
       valoracion: ['', [Validators.required]],
     })
+  }
+
+  onGoBackToList(): void {
+    this.router.navigate(['services']);
   }
 }

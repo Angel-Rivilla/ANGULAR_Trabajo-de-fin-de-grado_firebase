@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ServiceInterface } from 'src/app/shared/services/services';
+import { ServiceInterface } from 'src/app/shared/services/services.interface';
 import { NavigationExtras, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -12,7 +12,6 @@ import { ServiceService } from 'src/app/shared/services/service.service';
   styleUrls: ['./services.component.css']
 })
 export class ServicesServicesComponent implements OnInit {
-  data: Array<any>;
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -20,14 +19,24 @@ export class ServicesServicesComponent implements OnInit {
     }
   };
   
-  constructor(private router: Router) { 
-    this.data= [
-      {titulo:'Servicion personal de asistente', 
-      localizacion:'Alicante, Puerto', 
-      precioServicio:"5 euros/hora", 
-      valoracion:"4/5"}
+  fakeData = [
+  {
+    nombre:'Servicio personal de asistente', 
+    localizacion:'Alicante, Puerto', 
+    precio:"5 euros/hora", 
+    valoracion:"4/5"
+  },
+  {
+    nombre:'Ayuda de movilidad', 
+    localizacion:'Alicante, Centro', 
+    precio:"15 euros", 
+    valoracion:"5/5"
+  }
+];
 
-    ]
+
+  constructor(private router: Router) { 
+    
   }
 
   ngOnInit(): void {

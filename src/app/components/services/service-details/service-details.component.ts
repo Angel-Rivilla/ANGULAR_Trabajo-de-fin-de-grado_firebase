@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceInterface } from 'src/app/shared/services/services';
+import { ServiceInterface } from 'src/app/shared/services/services.interface';
 import { NavigationExtras, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -20,7 +20,6 @@ export class ServiceDetailsComponent implements OnInit {
     }
   };
 
-
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state;
@@ -28,6 +27,10 @@ export class ServiceDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(typeof this.servicio === 'undefined'){
+      this.router.navigate(['services']);
+    }
+    
   }
 
   onGoToEdit(): void {
