@@ -1,0 +1,24 @@
+<table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre del servicio</th>
+                            <th scope="col">Localización</th>
+                            <th scope="col">Precio del servicio</th>
+                            <th scope="col">Valoración</th>
+                            <th scope="col">Funciones</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-info" *ngFor="let item of [0, 1, 3, 4]">
+                            <th scope="row">Servicion personal de asistente</th>
+                            <td>Alicante, Puerto</td>
+                            <td>5 euros/hora</td>
+                            <td>4/5</td>
+                            <td  role="group">
+                                <button type="button" class="btn btn-primary m-1" (click) = "onGoToEdit(item)">Editar</button>
+                                <button type="button" class="btn btn-primary m-1" (click) = "onGoToSee(item)">Detalles</button>
+                                <button type="button" class="btn btn-danger m-1" (click) = "onGoToDelete(item)">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>

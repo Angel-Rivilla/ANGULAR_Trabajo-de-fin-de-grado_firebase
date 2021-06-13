@@ -7,6 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -20,6 +21,7 @@ import { ShippingComponent } from './shipping/shipping.component';
     ShippingComponent
   ],
   imports: [
+    MatTableModule,
     CommonModule,
     ShopRoutingModule
   ]

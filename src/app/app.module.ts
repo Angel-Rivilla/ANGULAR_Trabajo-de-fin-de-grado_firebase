@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,8 +12,11 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 
+
+
 //MATERIALES
 import {HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -36,10 +39,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import{ReactiveFormsModule} from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import { BrowserModule } from '@angular/platform-browser';
 
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireModule} from '@angular/fire'
 import { environment } from 'src/environments/environment';
+import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
+import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
 
 
 
@@ -52,9 +59,12 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     ContactComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ServiceDetailsComponent,
+    ServiceEditComponent
   ],
   imports: [
+    MatTableModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -82,6 +92,7 @@ import { environment } from 'src/environments/environment';
     MatDividerModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],

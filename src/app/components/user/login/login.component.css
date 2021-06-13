@@ -15,8 +15,10 @@ mat-card-content{
     justify-content: center;
 }
 
+.btn-group-lg>.btn, .btn-lg{
+    font-size: 1rem;
+}
+
 button{
     width: 100%;
-    margin-top: 3px;
-    
 }

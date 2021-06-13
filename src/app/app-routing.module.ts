@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
+import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProductDetailsComponent } from './components/shop/product-details/product-details.component';
 import { ProductListComponent } from './components/shop/product-list/product-list.component';
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'cart', loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule) },
   { path: 'products/:productId', component: ProductDetailsComponent },
   { path: 'shop', component: ProductListComponent },
-  { path: 'services', component: ServicesComponent }
+  { path: 'details', component: ServicesComponent },
+  { path: 'services', component: ServiceDetailsComponent},
+  { path: 'edit', component: ServiceEditComponent }
 ];
 
 @NgModule({

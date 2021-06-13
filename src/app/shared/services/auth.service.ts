@@ -4,7 +4,7 @@ import{first} from 'rxjs/operators'
 //import {UserI} from '../services/user.interface';
 import {AngularFireAuth} from '@angular/fire/auth';
 //import {Observable} from 'rxjs'
-//çimport{firebase} from 'firebase/app';
+//import{firebase} from 'firebase/app';
 //import{auth} from 'firebase';
 
 @Injectable({

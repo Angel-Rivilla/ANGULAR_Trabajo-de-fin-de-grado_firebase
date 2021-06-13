@@ -5,34 +5,23 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ServiceService } from 'src/app/shared/services/service.service';
 
-
 @Component({
-  selector: 'app-services',
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  selector: 'app-service-details',
+  templateUrl: './service-details.component.html',
+  styleUrls: ['./service-details.component.css']
 })
-export class ServicesComponent implements OnInit {
+export class ServiceDetailsComponent implements OnInit {
 
   data: Array<any>;
- /* service : ServiceInterface = {
-    id: '',
-    titulo: '',
-    descripcion: '',
-    precioServicio: '',
-    valoracion: '',
-    userId:'',
-    userNombre:''
-  };*/
-
 
   navigationExtras: NavigationExtras = {
     state: {
       value: null
     }
   };
-
+  
   constructor(private router: Router) { 
-    this.data=[
+    this.data= [
       {titulo:'Servicion personal de asistente', 
       localizacion:'Alicante, Puerto', 
       precioServicio:"5 euros/hora", 
@@ -44,16 +33,20 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*onGuardarService({value}: {value: ServiceInterface}){
-    this.authService.afAuth.authState.subscribe(user => {
-      value.userId = user?.uid;
-      this.serviceService.addNewService(value); 
-    });
-    
-    this.router.navigate(['/']);
+  onGoToEdit(item: any): void {
+    this.navigationExtras.state = item;
+    this.router.navigate(['edit'], this.navigationExtras);
+
+
   }
-*/
+  onGoToSee(item: any): void {
+    this.navigationExtras.state = item;
+    this.router.navigate(['details'],this.navigationExtras);
 
+  }
+  onGoToDelete(item: any): void {
+    alert('Deleted');
 
+  }
 
 }
