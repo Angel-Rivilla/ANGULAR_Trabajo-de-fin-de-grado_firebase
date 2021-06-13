@@ -1,24 +1,29 @@
-<table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre del servicio</th>
-                            <th scope="col">Localización</th>
-                            <th scope="col">Precio del servicio</th>
-                            <th scope="col">Valoración</th>
-                            <th scope="col">Funciones</th>  
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-info" *ngFor="let item of [0, 1, 3, 4]">
-                            <th scope="row">Servicion personal de asistente</th>
-                            <td>Alicante, Puerto</td>
-                            <td>5 euros/hora</td>
-                            <td>4/5</td>
-                            <td  role="group">
-                                <button type="button" class="btn btn-primary m-1" (click) = "onGoToEdit(item)">Editar</button>
-                                <button type="button" class="btn btn-primary m-1" (click) = "onGoToSee(item)">Detalles</button>
-                                <button type="button" class="btn btn-danger m-1" (click) = "onGoToDelete(item)">Borrar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="card mt-2">
+    <div class="card-header">
+        
+
+    </div>
+    <div class= "card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                Nombre del servicio : <H5> Servicion personal de asistente </H5>
+            </li>
+            <li class="list-group-item">
+                Localización : <H5> Alicante, Puerto </H5>
+            </li>
+            <li class="list-group-item">
+                Precio del servicio : <H5> 5 euros/hora </H5>
+            </li>
+            <li class="list-group-item">
+                Valoración : <H5> 4/5 </H5>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-group" role = "group">
+        <button type="button" class="btn btn-primary m-1 btn-sm" (click) = "onGoToEdit()">Editar</button>
+        <button type="button" class="btn btn-danger m-1 btn-sm" (click)= "onDelete()">Borrar</button>
+    </div>
+</div>
+
+<button type="button" class="btn btn-dark m-2 btn-sm" (click)= "onGoBackToList()">Volver al listado</button>
+

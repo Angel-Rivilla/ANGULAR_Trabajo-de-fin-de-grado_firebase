@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
 import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ServicesServicesComponent } from './components/services/services/services.component';
 import { ProductDetailsComponent } from './components/shop/product-details/product-details.component';
 import { ProductListComponent } from './components/shop/product-list/product-list.component';
 import { ShippingComponent } from './components/shop/shipping/shipping.component';
@@ -23,8 +24,8 @@ const routes: Routes = [
   { path: 'cart', loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule) },
   { path: 'products/:productId', component: ProductDetailsComponent },
   { path: 'shop', component: ProductListComponent },
-  { path: 'details', component: ServicesComponent },
-  { path: 'services', component: ServiceDetailsComponent},
+  { path: 'services', component: ServicesServicesComponent},
+  { path: 'details', component: ServiceDetailsComponent},
   { path: 'edit', component: ServiceEditComponent }
 ];
 

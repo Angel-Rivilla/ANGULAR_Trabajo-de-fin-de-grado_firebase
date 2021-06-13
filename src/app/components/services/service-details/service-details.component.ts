@@ -12,41 +12,34 @@ import { ServiceService } from 'src/app/shared/services/service.service';
 })
 export class ServiceDetailsComponent implements OnInit {
 
-  data: Array<any>;
+  servicio: any = null;
 
   navigationExtras: NavigationExtras = {
     state: {
       value: null
     }
   };
-  
-  constructor(private router: Router) { 
-    this.data= [
-      {titulo:'Servicion personal de asistente', 
-      localizacion:'Alicante, Puerto', 
-      precioServicio:"5 euros/hora", 
-      valoracion:"4/5"}
 
-    ]
+
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.servicio = navigation?.extras?.state;
+  
   }
 
   ngOnInit(): void {
   }
 
-  onGoToEdit(item: any): void {
-    this.navigationExtras.state = item;
+  onGoToEdit(): void {
+    this.navigationExtras.state = this.servicio;
     this.router.navigate(['edit'], this.navigationExtras);
-
-
-  }
-  onGoToSee(item: any): void {
-    this.navigationExtras.state = item;
-    this.router.navigate(['details'],this.navigationExtras);
-
-  }
-  onGoToDelete(item: any): void {
-    alert('Deleted');
-
   }
 
+  onDelete(){
+    alert('deleted')
+  }
+
+  onGoBackToList(): void{
+    this.router.navigate(['services']);
+  }
 }

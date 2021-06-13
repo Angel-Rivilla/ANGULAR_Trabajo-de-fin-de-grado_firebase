@@ -47,6 +47,7 @@ import {AngularFireModule} from '@angular/fire'
 import { environment } from 'src/environments/environment';
 import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
 import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
+import { ServicesServicesComponent } from './components/services/services/services.component';
 
 
 
@@ -60,6 +61,7 @@ import { ServiceDetailsComponent } from './components/services/service-details/s
     ContactComponent,
     LoginComponent,
     RegisterComponent,
+    ServicesServicesComponent,
     ServiceDetailsComponent,
     ServiceEditComponent
   ],
