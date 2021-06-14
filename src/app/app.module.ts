@@ -17,8 +17,6 @@ import { ServicesServicesComponent } from './components/services/services/servic
 import { ServiceFormComponent } from './components/services/service-form/service-form.component';
 import { ServiceAddComponent } from './components/services/service-add/service-add.component';
 
-
-
 //MATERIALES
 import {HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms'
@@ -48,8 +46,10 @@ import {MatTableModule} from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFireModule} from '@angular/fire'
+import {AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 
 
 
@@ -71,6 +71,7 @@ import { environment } from 'src/environments/environment';
     ServiceAddComponent
   ],
   imports: [
+    
     MatTableModule,
     HttpClientModule,
     BrowserModule,
@@ -102,7 +103,7 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,13 @@
           "login-ng-580d2"
         ]
       }
+    },
+    "crud-service-43577": {
+      "hosting": {
+        "apptfg": [
+          "crud-service-43577"
+        ]
+      }
     }
   }
 }

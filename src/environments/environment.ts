@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-    apiKey: "AIzaSyBfUKx2XZieq0eOc8Tl3TtTqsHyh76_ZhM",
-    authDomain: "login-ng-580d2.firebaseapp.com",
-    projectId: "login-ng-580d2",
-    storageBucket: "login-ng-580d2.appspot.com",
-    messagingSenderId: "732033220015",
-    appId: "1:732033220015:web:ef0b20e3840dd9e3adc35a"
-  },
+  firebaseConfig: {
+    apiKey: "AIzaSyAph8J-bcU2eIu5GLev8Ifcp2D1YUeQrVY",
+    authDomain: "crud-service-43577.firebaseapp.com",
+    projectId: "crud-service-43577",
+    storageBucket: "crud-service-43577.appspot.com",
+    messagingSenderId: "268903740380",
+    appId: "1:268903740380:web:338a07a36a2bd291671519"
+  }
 };
 
 /*

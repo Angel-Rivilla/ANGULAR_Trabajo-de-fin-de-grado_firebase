@@ -3,7 +3,7 @@ import { ServiceInterface } from 'src/app/shared/services/services.interface';
 import { NavigationExtras, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ServiceService } from 'src/app/shared/services/service.service';
+
 
 @Component({
   selector: 'app-service-details',
@@ -12,7 +12,7 @@ import { ServiceService } from 'src/app/shared/services/service.service';
 })
 export class ServiceDetailsComponent implements OnInit {
 
-  servicio: any = null;
+
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -20,6 +20,7 @@ export class ServiceDetailsComponent implements OnInit {
     }
   };
 
+  servicio: any = null;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();

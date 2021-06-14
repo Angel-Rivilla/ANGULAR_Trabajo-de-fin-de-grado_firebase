@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ServiceAddComponent } from './components/services/service-add/service-add.component';
 import { ServiceDetailsComponent } from './components/services/service-details/service-details.component';
 import { ServiceEditComponent } from './components/services/service-edit/service-edit.component';
-import { ServicesComponent } from './components/services/services.component';
 import { ServicesServicesComponent } from './components/services/services/services.component';
 import { ProductDetailsComponent } from './components/shop/product-details/product-details.component';
 import { ProductListComponent } from './components/shop/product-list/product-list.component';

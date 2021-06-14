@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../product-list/products';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ShopService } from '../Shop.service';
+
 import { Observable } from 'rxjs';
+import { ShopService } from '../Shop.service';
 
 
 

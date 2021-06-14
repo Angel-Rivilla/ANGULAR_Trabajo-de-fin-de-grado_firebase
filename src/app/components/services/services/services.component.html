@@ -10,7 +10,7 @@
     </thead>
 
     <tbody>
-        <tr class="table-info" *ngFor="let item of fakeData">
+        <tr class="table-info" *ngFor="let item of services$ | async">
             <th scope="row">{{item.nombre}}</th>
             <td>{{item.localizacion}}</td>
             <td>{{item.precio}}</td>
@@ -18,7 +18,7 @@
             <td  role="group">
                 <button type="button" class="btn btn-primary m-1" (click) = "onGoToEdit(item)">Editar</button>
                 <button type="button" class="btn btn-primary m-1" (click) = "onGoToSee(item)">Detalles</button>
-                <button type="button" class="btn btn-danger m-1" (click) = "onGoToDelete(item)">Borrar</button>
+                <button type="button" class="btn btn-danger m-1" (click) = "onGoToDelete(item.id)">Borrar</button>
             </td>
         </tr>
     </tbody>

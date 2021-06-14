@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ServiceInterface } from 'src/app/shared/services/services.interface';
+import { ServiceInterface} from 'src/app/shared/services/services.interface';
 import { NavigationExtras, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ServiceService } from 'src/app/shared/services/service.service';
+
+import { ServicesService } from './services.service';
 
 @Component({
   selector: 'app-services',
@@ -19,23 +20,13 @@ export class ServicesServicesComponent implements OnInit {
     }
   };
   
-  fakeData = [
-  {
-    nombre:'Servicio personal de asistente', 
-    localizacion:'Alicante, Puerto', 
-    precio:"5 euros/hora", 
-    valoracion:"4/5"
-  },
-  {
-    nombre:'Ayuda de movilidad', 
-    localizacion:'Alicante, Centro', 
-    precio:"15 euros", 
-    valoracion:"5/5"
-  }
-];
+  services$ = this.servicesSvc.services;
+  
+  //fakeData = servicesArray;
+  
 
-
-  constructor(private router: Router) { 
+  constructor(private router: Router, private servicesSvc: ServicesService) { 
+    const navigation = this.router.getCurrentNavigation();
     
   }
 
@@ -52,8 +43,15 @@ export class ServicesServicesComponent implements OnInit {
     this.router.navigate(['details'],this.navigationExtras);
 
   }
-  onGoToDelete(item: any): void {
-    alert('Deleted');
 
+
+ async onGoToDelete(empId: any): Promise<void> {
+    try {
+      await this.servicesSvc.onDeleteService(empId);
+      alert('Deleted');
+    } catch (err) {
+      console.log(err);
+    }
   }
+
 }
