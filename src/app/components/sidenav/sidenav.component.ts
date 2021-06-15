@@ -13,6 +13,7 @@ import{ AngularFireAuth} from '@angular/fire/auth';
   styleUrls: ['./sidenav.component.css'],
   providers:[AuthService],
 })
+
 export class SidenavComponent implements OnInit {
 public isLogged = false;
 public user:any;

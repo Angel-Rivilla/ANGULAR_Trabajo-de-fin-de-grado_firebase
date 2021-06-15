@@ -4,8 +4,8 @@ import { ServiceInterface} from 'src/app/shared/services/services.interface';
 import { NavigationExtras, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AuthService } from 'src/app/shared/services/auth.service';
-
 import { ServicesService } from './services.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-services',
@@ -21,16 +21,23 @@ export class ServicesServicesComponent implements OnInit {
   };
   
   services$ = this.servicesSvc.services;
-  
-  //fakeData = servicesArray;
-  
 
-  constructor(private router: Router, private servicesSvc: ServicesService) { 
+  public isLogged = false;
+  public user:any;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+  public emailUser: any;
+
+  constructor(private router: Router, private servicesSvc: ServicesService, private authSvc: AuthService) { 
     const navigation = this.router.getCurrentNavigation();
-    
+
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.user = await this.authSvc.getCurrentUser();
+    if(this.user){
+      this.isLogged=true;
+      this.emailUser = this.user.email;
+    }
   }
 
   onGoToEdit(item: any): void {
@@ -38,6 +45,11 @@ export class ServicesServicesComponent implements OnInit {
     this.router.navigate(['edit'], this.navigationExtras);
 
   }
+  onGoToAdd(item: any): void {
+    this.router.navigate(['add'], this.navigationExtras);
+    
+  }
+
   onGoToSee(item: any): void {
     this.navigationExtras.state = item;
     this.router.navigate(['details'],this.navigationExtras);

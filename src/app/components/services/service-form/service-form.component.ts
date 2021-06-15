@@ -30,6 +30,7 @@ export class ServiceFormComponent implements OnInit {
 
     this.servicioPrueba = navigation?.extras?.state?.value;
     console.log(this.servicioPrueba);
+
    }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class ServiceFormComponent implements OnInit {
       this.servicesSvc.onSaveService(servicio, serviceId);
       this.servicesForm.reset();
     }
+    
     
   }
 

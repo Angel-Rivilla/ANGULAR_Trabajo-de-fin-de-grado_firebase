@@ -20,8 +20,8 @@
         </ul>
     </div>
     <div class="btn-group" role = "group">
-        <button type="button" class="btn btn-primary m-1 btn-sm" (click) = "onGoToEdit()">Editar</button>
-        <button type="button" class="btn btn-danger m-1 btn-sm" (click)= "onDelete()">Borrar</button>
+        <button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 btn-sm" (click) = "onGoToEdit()">Editar</button>
+        <button *ngIf="user$ | async as user;" type="button" class="btn btn-danger m-1 btn-sm" (click)= "onDelete()">Borrar</button>
     </div>
 </div>
 <button type="button" class="btn btn-dark m-2 btn-sm" (click)= "onGoBackToList()">Volver al listado</button>
