@@ -1,0 +1,42 @@
+.button-mat-icon{
+    font-size: 1vw;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    max-height: 5vh;
+    text-transform: initial;
+    padding: .4vw;
+
+    margin-top: -.6vh;
+    
+  }
+
+.button-mat-icon:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.button-mat-icon mat-icon{
+    font-size: 1.1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.assignmentbutton{
+    font-size: 1.8vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.assignmentbutton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.tittleApp{
+    border-bottom: 1px solid black; 
+
+}

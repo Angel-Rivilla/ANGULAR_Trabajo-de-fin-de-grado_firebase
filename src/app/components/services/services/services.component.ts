@@ -45,7 +45,7 @@ export class ServicesServicesComponent implements OnInit {
     this.router.navigate(['edit'], this.navigationExtras);
 
   }
-  onGoToAdd(item: any): void {
+  onGoToAdd(): void {
     this.router.navigate(['add'], this.navigationExtras);
     
   }
