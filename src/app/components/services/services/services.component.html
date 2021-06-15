@@ -20,6 +20,7 @@
                             <th scope="col">Localización</th>
                             <th scope="col">Precio del servicio</th>
                             <th scope="col">Valoración</th>  
+                            <th scope="col">Usuario</th> 
                         </tr>
                     </thead>
 
@@ -29,9 +30,10 @@
                             <td>{{item.localizacion}}</td>
                             <td>{{item.precio}}</td>
                             <td>{{item.valoracion}}</td>
+                            <td>{{item.emailUser}}</td>
                             <td  role="group">
-                                <button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
-                                <button *ngIf="user$ | async as user;" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
+                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
+                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
                                 <mat-icon type= "button" class="assignmentbutton" (click) = "onGoToSee(item)">assignment</mat-icon>
                             </td>
                         </tr>

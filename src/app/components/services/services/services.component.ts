@@ -21,14 +21,18 @@ export class ServicesServicesComponent implements OnInit {
   };
   
   services$ = this.servicesSvc.services;
+ 
 
   public isLogged = false;
   public user:any;
   public user$: Observable<any> = this.authSvc.afAuth.user;
-  public emailUser: any;
+  public emailUserNew: any;
+
 
   constructor(private router: Router, private servicesSvc: ServicesService, private authSvc: AuthService) { 
     const navigation = this.router.getCurrentNavigation();
+
+  
 
   }
 
@@ -36,7 +40,7 @@ export class ServicesServicesComponent implements OnInit {
     this.user = await this.authSvc.getCurrentUser();
     if(this.user){
       this.isLogged=true;
-      this.emailUser = this.user.email;
+      this.emailUserNew = this.user.email;
     }
   }
 

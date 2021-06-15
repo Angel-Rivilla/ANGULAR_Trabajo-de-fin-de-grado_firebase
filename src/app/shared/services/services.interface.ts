@@ -4,4 +4,5 @@ export interface ServiceInterface{
     localizacion: string;
     precio: string;
     valoracion: string;
+    emailUser: string;
 }

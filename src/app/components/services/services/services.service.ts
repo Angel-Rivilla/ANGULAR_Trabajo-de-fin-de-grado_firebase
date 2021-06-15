@@ -33,12 +33,12 @@ export class ServicesService {
 
   }
 
-  onSaveService(service: ServiceInterface, serviceId: string): Promise<void>{
+  onSaveService(service: ServiceInterface, serviceId: string, emailUser: string): Promise<void>{
     return new Promise(async(resolve,reject)=>{
       try{
         
         const id = serviceId || this.afs.createId();
-        const data = {id , ...service };
+        const data = {id , ...service , emailUser};
         const result = await this.servicesCollection?.doc(id).set(data);
         resolve(result);
 

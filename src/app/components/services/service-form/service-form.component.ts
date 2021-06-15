@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ServiceInterface } from 'src/app/shared/services/services.interface';
 import { ServicesService } from '../services/services.service';
 
@@ -12,6 +14,10 @@ import { ServicesService } from '../services/services.service';
 })
 export class ServiceFormComponent implements OnInit {
 
+  public isLogged = false;
+  public user:any;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+
   servicesForm = new FormGroup({
     nombre: new FormControl(''),
     localizacion: new FormControl(''),
@@ -19,21 +25,17 @@ export class ServiceFormComponent implements OnInit {
     valoracion: new FormControl(''),
   });
 
-  servicioPrueba: ServiceInterface;
-
   servicio: any =  null;
 
-  constructor(private router: Router, private fb: FormBuilder, private servicesSvc: ServicesService) {
+  constructor(private router: Router, private fb: FormBuilder, private servicesSvc: ServicesService, private authSvc: AuthService) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state;
     console.log(this.servicio);
 
-    this.servicioPrueba = navigation?.extras?.state?.value;
-    console.log(this.servicioPrueba);
 
    }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.initForm();
     if(typeof this.servicio === 'undefined'){
       this.router.navigate(['add']);
@@ -41,6 +43,11 @@ export class ServiceFormComponent implements OnInit {
       this.servicesForm.patchValue(this.servicio);
     }
 
+    this.user = await this.authSvc.getCurrentUser();
+    if(this.user){
+      this.isLogged=true;
+    }
+    
   }
 
   onSave(): void {
@@ -48,8 +55,9 @@ export class ServiceFormComponent implements OnInit {
     if (this.servicesForm.valid) {
       const servicio = this.servicesForm.value;
       const serviceId = this.servicio?.id || null;
-      console.log(serviceId);
-      this.servicesSvc.onSaveService(servicio, serviceId);
+      const emailUser = this.user.email;
+  
+      this.servicesSvc.onSaveService(servicio, serviceId, emailUser);
       this.servicesForm.reset();
     }
     
