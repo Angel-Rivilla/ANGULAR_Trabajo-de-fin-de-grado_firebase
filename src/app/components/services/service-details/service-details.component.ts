@@ -31,13 +31,13 @@ export class ServiceDetailsComponent implements OnInit {
   constructor(private router: Router, private servicesSvc: ServicesService, private authSvc: AuthService) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state;
-    console.log(this.servicio);
   }
 
   async ngOnInit(){
     if(typeof this.servicio === 'undefined'){
       this.router.navigate(['services']);
     }
+
     this.user = await this.authSvc.getCurrentUser();
     if(this.user){
       this.isLogged=true;

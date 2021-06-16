@@ -3,10 +3,6 @@
     <div class="col-md-12">
         <div class = "row" >
             <div class="col-md-12">
-                 <button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 float-right button-mat-icon" (click) = "onGoToAdd()">
-                    <mat-icon>add</mat-icon>
-                    <span>Crear servicio</span>
-                </button>
                 <H3 class = "tittleApp" style="margin-top: 1vw">Servicios</H3>
             </div>
         </div>
@@ -21,6 +17,10 @@
                             <th scope="col">Precio del servicio</th>
                             <th scope="col">Valoración</th>  
                             <th scope="col">Usuario</th> 
+                            <th scope="col"><button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 float-right button-mat-icon" (click) = "onGoToAdd()">
+                            <mat-icon>add</mat-icon>
+                            <span>Crear servicio</span>
+                            </button></th>
                         </tr>
                     </thead>
 
@@ -32,9 +32,9 @@
                             <td>{{item.valoracion}}</td>
                             <td>{{item.emailUser}}</td>
                             <td  role="group">
-                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
-                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
-                                <mat-icon type= "button" class="assignmentbutton" (click) = "onGoToSee(item)">assignment</mat-icon>
+                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon float-left" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
+                                <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon float-left" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
+                                <mat-icon type= "button" class="float-right assignmentbutton" (click) = "onGoToSee(item)">info</mat-icon>
                             </td>
                         </tr>
                     </tbody>
