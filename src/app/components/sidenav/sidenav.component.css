@@ -20,4 +20,22 @@ mat-sidenav {
 }
 
 
+.button-mat-icon{
+  display: flex;
+  align-items: center;
+  max-height: 5vh;
+  text-transform: initial;
+  padding: .4vw;
+  margin-top: -.6vh;
+  padding-right: 1rem;
+}
+
+.button-mat-icon mat-icon{
+  font-size: 1.1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 

@@ -19,6 +19,7 @@ public isLogged = false;
 public user:any;
 public user$: Observable<any> = this.authSvc.afAuth.user;
 
+estadoAyuda = false;
 opened = false;
 
   fillerNav = [
@@ -51,6 +52,14 @@ opened = false;
     } else {
      this.opened = false;
     }
+  }
+
+  helpControl(){
+    if(this.estadoAyuda == false){
+      this.estadoAyuda = true;
+     } else {
+      this.estadoAyuda = false;
+     }
   }
 
 }
