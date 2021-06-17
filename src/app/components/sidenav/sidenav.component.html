@@ -30,15 +30,16 @@
               </li>
 
               <li class="nav-item active">
-                <mat-icon style="font-size: 20px">help</mat-icon>
-                <a class="nav-link" (click) = "estadoAyuda = true" style= "cursor: pointer">Ayuda
+                <a class="nav-link button-mat-icon" (click) = "helpControl()">
+                  <mat-icon>help</mat-icon>
+                  <span >Ayuda</span>
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               
               <li class="nav-item active" *ngIf="user">
-                <a class="nav-link" [routerLink] = "['cart']" style= "cursor: pointer">
-                  <mat-icon style="font-size: 15px">shopping_cart</mat-icon>
+                <a class="nav-link button-mat-icon" [routerLink] = "['cart']">
+                  <mat-icon >shopping_cart</mat-icon>
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -64,9 +65,9 @@
                   </a>
                 </li>
                 <li class="nav-item active">  
-                  <a class="nav-link" (click) = "helpControl()" style= "cursor: pointer">
+                  <a class="nav-link button-mat-icon" (click) = "helpControl()">
                     <mat-icon>help</mat-icon>
-                    <span style= "align-items: center;">Ayuda</span>
+                    <span >Ayuda</span>
                     <span class="visually-hidden">(current)</span>
                   </a>
                 </li>
@@ -86,8 +87,8 @@
                 </li>
 
                 <li class="nav-item active">
-                <a class="nav-link" [routerLink] = "['cart']" style= "cursor: pointer">
-                  <mat-icon style="font-size: 20px">shopping_cart</mat-icon>
+                <a class="nav-link button-mat-icon" [routerLink] = "['cart']" style= "cursor: pointer">
+                  <mat-icon>shopping_cart</mat-icon>
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
