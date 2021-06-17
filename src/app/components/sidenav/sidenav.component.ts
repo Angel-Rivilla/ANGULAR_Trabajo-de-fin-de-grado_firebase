@@ -44,4 +44,13 @@ opened = false;
     catch(error){console.log(error)}
   }
 
+
+  sidenavControl(){
+    if(this.opened == false){
+     this.opened = true;
+    } else {
+     this.opened = false;
+    }
+  }
+
 }

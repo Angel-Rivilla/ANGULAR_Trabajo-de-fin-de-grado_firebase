@@ -8,6 +8,16 @@ mat-sidenav {
 }
 
 .sidenavLateral{
-  margin-right: 10px;
+  margin-right: 20px;
 }
+
+.navbarPrincipal{
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  top: 0;
+  font-size: 12px;
+}
+
+
 
