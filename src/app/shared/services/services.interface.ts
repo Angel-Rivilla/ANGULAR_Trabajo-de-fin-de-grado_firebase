@@ -5,4 +5,5 @@ export interface ServiceInterface{
     precio: string;
     valoracion: string;
     emailUser: string;
+    image: string;
 }

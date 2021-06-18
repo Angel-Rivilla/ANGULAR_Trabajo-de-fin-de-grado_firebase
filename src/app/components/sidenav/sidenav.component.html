@@ -1,114 +1,117 @@
 
-<div *ngIf = "estadoAyuda == true"><span>Home</span></div>
 
-<nav class="navbar navbar-expand-lg navbar-dark navbarPrincipal">
-  <div class="container-fluid">
-        <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top">
+      <div class="container-fluid">
+            <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
-              <a class="nav-link" [routerLink] = "['/']" >Home
-                <span class="visually-hidden">(current)</span>
-              </a>
-            </li>
-            
-            <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
-              <li class="nav-item active">
-                <a class="nav-link" [routerLink] = "['services']" >Services
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" [routerLink] = "['/']" >Home
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                
+                <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
+                  <li class="nav-item active">
+                    <a class="nav-link" [routerLink] = "['services']" >Services
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
 
-              <li class="nav-item active" *ngIf="user">
-                <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
+                  <li class="nav-item active" *ngIf="user">
+                    <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
 
-              <li class="nav-item active">
-                <a class="nav-link button-mat-icon" (click) = "helpControl()">
-                  <mat-icon>help</mat-icon>
-                  <span >Ayuda</span>
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
+                  <li class="nav-item active">
+                    <a class="nav-link button-mat-icon" (click) = "helpControl()">
+                      <mat-icon>help</mat-icon>
+                      <span >Ayuda</span>
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item active" *ngIf="user">
+                    <a class="nav-link button-mat-icon" [routerLink] = "['cart']">
+                      <mat-icon >shopping_cart</mat-icon>
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item active" *ngIf="user">
+                    <a class="nav-link" (click) = "onLogout()" style= "cursor: pointer">Logout
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                </ul>
+              </ul>
               
-              <li class="nav-item active" *ngIf="user">
-                <a class="nav-link button-mat-icon" [routerLink] = "['cart']">
-                  <mat-icon >shopping_cart</mat-icon>
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
+              <ng-template #login>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" [routerLink] = "['services']" >Services
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item active">  
+                      <a class="nav-link button-mat-icon" (click) = "helpControl()">
+                        <mat-icon>help</mat-icon>
+                        <span >Ayuda</span>
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
 
-              <li class="nav-item active" *ngIf="user">
-                <a class="nav-link" (click) = "onLogout()" style= "cursor: pointer">Logout
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </ul>
-          
-          <ng-template #login>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" [routerLink] = "['services']" >Services
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item active">  
-                  <a class="nav-link button-mat-icon" (click) = "helpControl()">
-                    <mat-icon>help</mat-icon>
-                    <span >Ayuda</span>
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" [routerLink] = "['/user/login']">Identificarse
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
 
-                <li class="nav-item active">
-                  <a class="nav-link" [routerLink] = "['/user/login']">Identificarse
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
+                      <span class="nav-link">|</span>
 
-                  <span class="nav-link">|</span>
+                    <li class="nav-item active">
+                      <a class="nav-link" [routerLink] = "['/user/register']" >Crear cuenta
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
 
-                <li class="nav-item active">
-                  <a class="nav-link" [routerLink] = "['/user/register']" >Crear cuenta
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
+                    <li class="nav-item active">
+                    <a class="nav-link button-mat-icon" [routerLink] = "['cart']" style= "cursor: pointer">
+                      <mat-icon>shopping_cart</mat-icon>
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                </ul>
+              </ng-template>
 
-                <li class="nav-item active">
-                <a class="nav-link button-mat-icon" [routerLink] = "['cart']" style= "cursor: pointer">
-                  <mat-icon>shopping_cart</mat-icon>
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </ng-template>
-
-          <ng-template #loginLateral>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink] = "['/user/login']" (click)="opened=false">Login
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
-            </ul>
-          </ng-template>
-        </div>
-  </div>
+              <ng-template #loginLateral>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" [routerLink] = "['/user/login']" (click)="opened=false">Login
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                </ul>
+              </ng-template>
+              <div class = "col-xs-12 col-sm-12 col-md-6">
+                <app-form-search></app-form-search>
+              </div>
+            </div>
+      </div>
 </nav>
 
-<mat-sidenav-container>
+
+<mat-sidenav-container style="margin-top: 50px; fixed">
   <mat-sidenav mode="over" [(opened)] = "opened">
 
     <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else loginLateral">
@@ -123,7 +126,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content style = "margin-top: 20px">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 <mat-sidenav-container>

@@ -1,9 +1,33 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of services$ | async">
+     <div class = "card">
+        <div class = "image">
+            <a [routerLink]="['/details', item.id]">
+                <img
+                    [src]="item.image"
+                    [alt]="item.nombre"
+                    class="card-img-top"/>
+            </a>
+        </div>
+        <div class="card-inner">
+            <div class="header">
+                <a (click) = "onGoToSee(item)">
+                    <h2>{{item.nombre}}</h2>
+                </a>
+                <h4 class="text-muted">Datos</h4>
+                <small class="text-muted">Datos</small>
+            </div>
+        </div>
 
-<div>
+     </div>
+  </div>
+</div>
+
+<div class = "row" >
     <div class="col-md-12">
         <div class = "row" >
             <div class="col-md-12">
-                <H3 style="margin-top: 1vw">Servicios</H3>
+                <H3 style="border-bottom: 1px solid black">Servicios</H3>
             </div>
         </div>
 
@@ -39,6 +63,8 @@
                         </tr>
                     </tbody>
                 </table>
+
+               
             </div>
         </div>
     </div>

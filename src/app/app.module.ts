@@ -50,6 +50,7 @@ import {AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { FormSearchComponent } from './components/sidenav/form-search/form-search.component';
 
 
 
@@ -68,7 +69,8 @@ import { AngularFirestoreCollection } from '@angular/fire/firestore';
     ServiceFormComponent,
     ServiceDetailsComponent,
     ServiceEditComponent,
-    ServiceAddComponent
+    ServiceAddComponent,
+    FormSearchComponent
   ],
   imports: [
     
