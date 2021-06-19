@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{FormGroup,FormControl} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
   
-  constructor(private authSvc:AuthService,private router: Router){}
+  constructor(private authSvc:AuthService,private router: Router, public modal: NgbModal){}
   ngOnInit(): void {}
   
   async onLogin(){
@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
       console.log(error)
     }
   }
+
+
 
 }
 

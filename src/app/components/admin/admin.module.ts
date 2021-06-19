@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,6 +12,8 @@ import { AdminComponent } from './admin.component';
     AdminComponent
   ],
   imports: [
+    NgbModal,
+    FormsModule,
     CommonModule,
     AdminRoutingModule
   ]

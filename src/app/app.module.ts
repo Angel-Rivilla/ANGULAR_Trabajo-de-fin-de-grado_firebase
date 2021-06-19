@@ -55,6 +55,8 @@ import { ProductAddComponent } from './components/shop/product-add/product-add.c
 import { ProductEditComponent } from './components/shop/product-edit/product-edit.component';
 import { ProductFormComponent } from './components/shop/product-form/product-form.component';
 import { CartComponent } from './components/cart/cart.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -80,7 +82,6 @@ import { CartComponent } from './components/cart/cart.component';
     ProductFormComponent
   ],
   imports: [
-    
     MatTableModule,
     HttpClientModule,
     BrowserModule,

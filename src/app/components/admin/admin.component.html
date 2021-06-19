@@ -1,1 +1,57 @@
-<p>admin works!</p>
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title"> Titulo </h4>
+        <button class="close" aria-label="close" type="button" (click) ="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <div class="input-group">
+                <input id="firstname" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="lastname">Lastname</label>
+                <div class="input-group">
+                    <input id="lastname" name="lastname" class="form-control" ngModel>
+                </div>
+            </div>
+            <div class="border text-center">
+                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" type="button" (click) ="modal.close()">
+            OK!
+        </button>
+    </div>
+</ng-template>
+
+
+<button type="button" class="btn btn-outline-danger" (click)="openSM(contenido)">
+    lanzar modal sm
+</button>
+<button type="button" class="btn btn-outline-success" (click)="openLG(contenido)">
+    lanzar modal lg
+</button>
+<button type="button" class="btn btn-outline-secondary" (click)="openXL(contenido)">
+    lanzar modal xl
+</button>
+<button type="button" class="btn btn-outline-secondary" (click)="openCentrado(contenido)">
+    lanzar centrado
+</button>
+<button type="button" class="btn btn-outline-secondary" (click)="openScroll(contenido)">
+    lanzar centrado
+</button>
+<button type="button" class="btn btn-outline-info" (click)="openBackground(contenido)">
+    lanzar centrado
+</button>
+<button type="button" class="btn btn-outline-dark" (click)="openWindow(contenido)">
+    lanzar centrado
+</button>
+
+

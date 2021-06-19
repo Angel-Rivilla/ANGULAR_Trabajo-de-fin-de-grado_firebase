@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactComponent } from './components/contact/contact.component';
 
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'user/login', component: LoginComponent},
   { path: 'user/register', component: RegisterComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', component: AdminComponent},
   
   //RUTAS SERVICIOS
   { path: 'services', component: ServicesServicesComponent},
