@@ -35,3 +35,16 @@ mat-sidenav {
   height: 100%;
   position: fixed;
 }
+
+.topnatvarcenter{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.topnatvarcenter mat-icon{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}

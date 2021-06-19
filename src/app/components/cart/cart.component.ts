@@ -30,11 +30,14 @@ export class CartComponent implements OnInit {
   clearCart(){
     this.productsSvc.clearCart();
     this.router.navigate(['shop']);
-
   }
 
-  deleteItem(): void {
-    this.productsSvc.deleteItem();
+  deleteItem(product: Product): void {
+    this.productsSvc.deleteItem(product);
+
+  }
+  onGoBackToList(): void {
+    this.router.navigate(['shop/details']);
   }
 
 }

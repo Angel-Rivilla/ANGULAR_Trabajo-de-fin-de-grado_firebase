@@ -1,10 +1,22 @@
-
-<div *ngFor = "let item of items">
-    <span>{{item.name}}</span>
-    <span>{{item.id}}</span>
-    <span>{{item.price}}</span>
-    <span>{{item.description}}</span>
-    <button type="button" class="btn btn-danger m-1 btn-sm" (click)= "deleteItem()">Añadir al carro</button>
+<div class="card mt-2" *ngIf = "items.length > 0">
+    <div class="card-header">
+    </div>
+    <div class= "card-body" *ngFor = "let item of items">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                Producto: <H5> {{item.name}} </H5>
+            </li>
+            <li class="list-group-item">
+                Precio: <H5> {{item.price}} </H5>
+            </li>
+            <li class="list-group-item">
+                Descripcion: <H5> {{item.description}} </H5>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-danger m-1 btn-sm" (click)="deleteItem(item)">Borrar</button>
+    </div>
+    <button *ngIf = "items.length > 0" type="button" class="btn btn-primary m-1 btn-sm" (click)= "clearCart()">Vaciar cesta</button>
 </div>
 
-<button type="button" class="btn btn-danger m-1 btn-sm" (click)= "clearCart()">Añadir al carro</button>
+<H5 *ngIf = "items.length == 0">Tu carrito de compra esta vacío!</H5>
+<button type="button" class="btn btn-dark m-2 btn-sm" (click)= "onGoBackToList()">Volver al listado</button>

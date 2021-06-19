@@ -19,7 +19,7 @@
     <div class="btn-group" role = "group">
         <button *ngIf="emailUserNew == producto.emailUser" type="button" class="btn btn-primary m-1 btn-sm" (click) = "onGoToEdit()">Editar</button>
         <button *ngIf="emailUserNew == producto.emailUser" type="button" class="btn btn-danger m-1 btn-sm" (click)= "onDelete()">Borrar</button>
-        <button type="button" class="btn btn-danger m-1 btn-sm" (click)= "addToCart()">Añadir al carro</button>
+        <button *ngIf="isLogged == true && emailUserNew != producto.emailUser" type="button" class="btn btn-danger m-1 btn-sm" (click)= "addToCart()">Añadir al carro</button>
     </div>
 </div>
 <button type="button" class="btn btn-dark m-2 btn-sm" (click)= "onGoBackToList()">Volver al listado</button>

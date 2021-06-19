@@ -36,9 +36,9 @@ export class ShopService {
     return this.items;
   }
   
-  deleteItem(): void {
-
-    
+  deleteItem(product: Product){
+    const eliminar = this.items.findIndex(p => p.id === product.id); 
+    this.items.splice(eliminar, 1);
   }
 
 
