@@ -20,6 +20,7 @@ export class ShopService {
   constructor(private route: ActivatedRoute, private router: Router,private http: HttpClient, private readonly afs: AngularFirestore) { 
     this.productsCollection = afs.collection<Product> ('products');
     this.getProducts();
+    console.log(this.items);
   }
 
   addToCart(product: Product) {
@@ -35,8 +36,9 @@ export class ShopService {
     return this.items;
   }
   
-  getShippingPrices() {
-    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
+  deleteItem(): void {
+
+    
   }
 
 

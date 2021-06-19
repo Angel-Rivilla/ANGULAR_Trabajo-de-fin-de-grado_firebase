@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 
 import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { CartComponent } from '../../cart/cart.component';
 
 
 
@@ -17,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
     ShopComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     MatTableModule,

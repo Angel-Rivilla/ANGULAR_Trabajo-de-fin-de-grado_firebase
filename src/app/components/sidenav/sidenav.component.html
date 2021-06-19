@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark navbarPrincipal">
       <div class="container-fluid">
             <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
@@ -110,8 +110,8 @@
       </div>
 </nav>
 
+<mat-sidenav-container>
 
-<mat-sidenav-container style="margin-top: 50px; fixed">
   <mat-sidenav mode="over" [(opened)] = "opened">
 
     <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else loginLateral">
@@ -126,7 +126,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content style = "margin-top: 20px">
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 <mat-sidenav-container>
