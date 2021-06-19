@@ -51,6 +51,9 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormSearchComponent } from './components/sidenav/form-search/form-search.component';
+import { ProductAddComponent } from './components/shop/product-add/product-add.component';
+import { ProductEditComponent } from './components/shop/product-edit/product-edit.component';
+import { ProductFormComponent } from './components/shop/product-form/product-form.component';
 
 
 
@@ -70,7 +73,10 @@ import { FormSearchComponent } from './components/sidenav/form-search/form-searc
     ServiceDetailsComponent,
     ServiceEditComponent,
     ServiceAddComponent,
-    FormSearchComponent
+    FormSearchComponent,
+    ProductAddComponent,
+    ProductEditComponent,
+    ProductFormComponent
   ],
   imports: [
     

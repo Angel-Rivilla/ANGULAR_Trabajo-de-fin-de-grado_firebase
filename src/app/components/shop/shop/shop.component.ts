@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { Product } from './product-list/products';
+
 import { Observable } from 'rxjs';
-import { ShopService } from './Shop.service';
+import { ShopService } from './shop.service';
 
 @Component({
   selector: 'app-shop',
@@ -42,18 +42,18 @@ export class ShopComponent implements OnInit {
 
   onGoToEdit(item: any): void {
     this.navigationExtras.state = item;
-    this.router.navigate(['edit'], this.navigationExtras);
+    this.router.navigate(['shop/edit'], this.navigationExtras);
 
   }
 
   onGoToAdd(): void {
-    this.router.navigate(['add'], this.navigationExtras);
+    this.router.navigate(['shop/add'], this.navigationExtras);
     
   }
 
   onGoToSee(item: any): void {
     this.navigationExtras.state = item;
-    this.router.navigate(['details'],this.navigationExtras);
+    this.router.navigate(['shop/details'],this.navigationExtras);
 
   }
 

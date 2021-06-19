@@ -1,33 +1,14 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of services$ | async">
-     <div class = "card">
-        <div class = "image">
-            <a [routerLink]="['/details', item.id]">
-                <img
-                    [src]="item.image"
-                    [alt]="item.nombre"
-                    class="card-img-top"/>
-            </a>
-        </div>
-        <div class="card-inner">
-            <div class="header">
-                <a (click) = "onGoToSee(item)">
-                    <h2>{{item.nombre}}</h2>
-                </a>
-                <h4 class="text-muted">Datos</h4>
-                <small class="text-muted">Datos</small>
-            </div>
-        </div>
-
-     </div>
-  </div>
-</div>
-
 <div class = "row" >
     <div class="col-md-12">
         <div class = "row" >
             <div class="col-md-12">
-                <H3 style="border-bottom: 1px solid black">Servicios</H3>
+                <H3 class = "d-flex" style="border-bottom: 1px solid black">
+                    <span>Servicios</span>
+                    <button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 float-right button-mat-icon" (click) = "onGoToAdd()">
+                        <mat-icon>add</mat-icon>
+                        <span>Crear servicio</span>
+                    </button>
+                </H3>
             </div>
         </div>
 
@@ -41,10 +22,7 @@
                             <th scope="col">Precio del servicio</th>
                             <th scope="col">Valoración</th>  
                             <th scope="col">Usuario</th> 
-                            <th scope="col"><button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 float-right button-mat-icon" (click) = "onGoToAdd()">
-                            <mat-icon>add</mat-icon>
-                            <span>Crear servicio</span>
-                            </button></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
 
@@ -55,7 +33,7 @@
                             <td>{{item.precio}}</td>
                             <td>{{item.valoracion}}</td>
                             <td>{{item.emailUser}}</td>
-                            <td  role="group">
+                            <td  role="group" class="d-flex">
                                 <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon float-left" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
                                 <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon float-left" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
                                 <mat-icon type= "button" class="float-right assignmentbutton" (click) = "onGoToSee(item)">info</mat-icon>

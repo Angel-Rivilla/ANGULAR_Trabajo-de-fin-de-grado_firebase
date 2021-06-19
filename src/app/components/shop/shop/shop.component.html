@@ -1,0 +1,33 @@
+
+<button *ngIf="user$ | async as user;" type="button" class="btn btn-primary m-1 float-right button-mat-icon" (click) = "onGoToAdd()">
+    <mat-icon>add</mat-icon>
+    <span>Crear producto</span>
+</button>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of products$ | async">
+     <div class = "card">
+        <div class = "image">
+            <a [routerLink]="['/details', item.id]">
+                <img
+                    [src]="item.image"
+                    [alt]="item.name"
+                    class="card-img-top"/>
+            </a>
+        </div>
+        <div class="card-inner">
+            <div class="header">
+                <a (click) = "onGoToSee(item)">
+                    <h2>{{item.name}}</h2>
+                </a>
+                <h4 class="text-muted">{{item.price}}</h4>
+                <small class="text-muted">{{item.description}}</small>
+                <div class="d-flex">
+                    <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
+                    <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
+                </div>
+            </div>
+        </div>
+     </div>
+  </div>
+</div>

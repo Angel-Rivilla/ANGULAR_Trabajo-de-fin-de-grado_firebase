@@ -1,3 +1,4 @@
+
 .button-mat-icon{
     font-size: 1vw;
     display: flex;
@@ -5,7 +6,6 @@
     max-height: 5vh;
     text-transform: initial;
     padding: .4vw;
-
     margin-top: -.6vh;
     
   }
@@ -62,4 +62,3 @@
     img:hover{
       opacity: 1;
     }
-  

@@ -17,7 +17,7 @@ export class ServiceFormComponent implements OnInit {
   public isLogged = false;
   public user:any;
   public user$: Observable<any> = this.authSvc.afAuth.user;
-
+  
   servicesForm = new FormGroup({
     nombre: new FormControl(''),
     localizacion: new FormControl(''),
