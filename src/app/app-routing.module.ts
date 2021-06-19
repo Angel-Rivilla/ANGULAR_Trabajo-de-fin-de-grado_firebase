@@ -8,7 +8,7 @@ import { ServiceEditComponent } from './components/services/service-edit/service
 import { ServicesServicesComponent } from './components/services/services/services.component';
 import { ProductDetailsComponent } from './components/shop/product-details/product-details.component';
 import { ProductListComponent } from './components/shop/product-list/product-list.component';
-import { ShippingComponent } from './components/shop/shipping/shipping.component';
+
 import { ShopComponent } from './components/shop/shop.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
@@ -21,13 +21,18 @@ const routes: Routes = [
   { path: 'user/register', component: RegisterComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
-  { path: 'cart', loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule) },
-  { path: 'products/:productId', component: ProductDetailsComponent },
-  { path: 'shop', component: ProductListComponent },
+  
+  //RUTAS SERVICIOS
   { path: 'services', component: ServicesServicesComponent},
   { path: 'details', component: ServiceDetailsComponent},
   { path: 'edit', component: ServiceEditComponent },
-  { path: 'add', component: ServiceAddComponent}
+  { path: 'add', component: ServiceAddComponent},
+
+  //RUTAS TIENDA
+  { path: 'cart', component: ProductListComponent },
+  { path: 'shop', loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule) },
+  { path: 'shop/details', component: ProductDetailsComponent}
+  
 ];
 
 @NgModule({

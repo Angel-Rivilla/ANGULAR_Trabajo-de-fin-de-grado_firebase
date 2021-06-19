@@ -31,7 +31,7 @@ export class ProductDetailsComponent implements OnInit {
   const productIdFromRoute = Number(routeParams.get('productId'));
 
   // Find the product that correspond with the id provided in route.
-  this.product = products.find(product => product.id === productIdFromRoute);
+  //this.product = products.find(product => product.id === productIdFromRoute);
 
   this.user = await this.authSvc.getCurrentUser();
     if(this.user){
