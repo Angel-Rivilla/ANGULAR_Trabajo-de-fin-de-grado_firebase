@@ -5,11 +5,13 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from '../user/login/login.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     NgbModal,

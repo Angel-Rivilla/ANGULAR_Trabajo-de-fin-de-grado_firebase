@@ -46,5 +46,25 @@ mat-sidenav {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.colorPopUpActive{
+  background-color: #fff;
+}
+.colorPopUpInactive{
+  background-color: whitesmoke;
+}
+
+.tittlePopUp{
+  font-weight: bold;
+  
+}
+
+button{
+  margin-top:3vw;
+  padding: 7px;
+  width: 50%;
+  font-size: medium;
+  margin-left: 23.66667%;
 
 }

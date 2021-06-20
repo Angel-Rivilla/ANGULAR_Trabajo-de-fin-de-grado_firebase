@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  openLG(contenido: any){
+    this.modal.open(contenido, {size:'lg'});
+  }
 
 
 }

@@ -1,4 +1,32 @@
+<ng-template #contenido let-modal>
+    <div class="modal-header" style = "background-color: whitesmoke">
+        <span [ngClass]="botonLogin==0 ? 'colorPopUpActive': 'colorPopUpInactive'" type="button" (click) = "botonLogin = 0" class="modal-title tittlePopUp"> IDENTIFICARSE </span>
+        <span [ngClass]="botonLogin==1 ? 'colorPopUpActive': 'colorPopUpInactive'" type="button" (click) = "botonLogin = 1" class="modal-title tittlePopUp"> NUEVA CUENTA </span>
+        <mat-icon class ="close" aria-label="close" type="button" (click) ="modal.dismiss()">close</mat-icon>
+    </div>
+    
+    <div class="modal-body">
+        <form *ngIf = "botonLogin == 0" [formGroup] ="loginForm" (ngSubmit)="onLogin()">
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
+                <input style = "margin-top: 2vw;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+            </div>
+            <button (click) ="modal.close()" type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>   
+        </form>
 
+        <form *ngIf = "botonLogin == 1" [formGroup] ="registerForm" (ngSubmit)="onRegister()">
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" formControlName="email"/>
+                <input style = "margin-top: 2vw;" type="contraseña" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" formControlName="password"/>
+            </div>
+            <button (click) ="modal.close()" type="submit" class="btn btn-primary btn-lg">Crear cuenta</button>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        
+    </div>
+</ng-template>
 
 <nav class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top" style="height: 10vh">
       <div class="container-fluid">
@@ -71,7 +99,7 @@
                     </li>
 
                     <li class="nav-item active topnatvarcenter">
-                      <a class="nav-link" [routerLink] = "['/user/login']">Identificarse
+                      <a type="button" class="nav-link" (click)="openLG(contenido); botonLogin=0">Identificarse
                         <span class="visually-hidden">(current)</span>
                       </a>
                     </li>
@@ -79,7 +107,7 @@
                       <span class="nav-link">|</span>
 
                     <li class="nav-item active topnatvarcenter">
-                      <a class="nav-link" [routerLink] = "['/user/register']" >Crear cuenta
+                      <a type="button" class="nav-link" (click)="openLG(contenido); botonLogin=1">Crear cuenta
                         <span class="visually-hidden">(current)</span>
                       </a>
                     </li>
@@ -102,9 +130,6 @@
                     </li>
                 </ul>
               </ng-template>
-              <div class = "col-xs-12 col-sm-12 col-md-6">
-                <app-form-search></app-form-search>
-              </div>
             </div>
       </div>
 </nav>

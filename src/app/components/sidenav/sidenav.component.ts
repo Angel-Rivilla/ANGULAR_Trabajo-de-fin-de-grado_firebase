@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import{ AngularFireAuth} from '@angular/fire/auth';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -15,6 +17,9 @@ import{ AngularFireAuth} from '@angular/fire/auth';
 })
 
 export class SidenavComponent implements OnInit {
+
+botonLogin = 0;
+
 public isLogged = false;
 public user:any;
 public user$: Observable<any> = this.authSvc.afAuth.user;
@@ -24,11 +29,21 @@ opened = false;
 
   fillerNav = [
     {name: "Home", route: "", icon: "home"},
-   
-
   ]
 
-  constructor(private authSvc: AuthService, private router:Router){}
+  //FORM LOGIN
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  //FORM REGISTER
+  registerForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  })
+
+  constructor(private authSvc: AuthService, private router:Router,public modal: NgbModal){}
   async ngOnInit(){
     this.user = await this.authSvc.getCurrentUser();
     if(this.user){
@@ -61,5 +76,39 @@ opened = false;
       this.estadoAyuda = false;
      }
   }
+
+  //LOGIN Y REGISTRO
+  openLG(contenido: any){
+    this.modal.open(contenido, {size:'lg'});
+  }
+
+  //LOGIN
+  async onLogin(){
+    const {email, password} = this.loginForm.value;
+    try{
+      const user = this.authSvc.login(email,password);
+      if(await user){
+          this.router.navigate(['home']);
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  //REGISTRO
+  async onRegister(){
+    const {email, password} = this.registerForm.value;
+    try{
+    const user = this.authSvc.register(email, password);
+    if(await user){
+      this.router.navigate(['home']);
+    }
+    } catch(error)
+    {
+      console.log(error)
+    
+    }
+  }
+
 
 }
