@@ -4,30 +4,36 @@
     <span>Crear producto</span>
 </button>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of products$ | async">
-     <div class = "card">
-        <div class = "image">
-            <a [routerLink]="['/details', item.id]">
-                <img
-                    [src]="item.image"
-                    [alt]="item.name"
-                    class="card-img-top"/>
-            </a>
-        </div>
-        <div class="card-inner">
-            <div class="header">
-                <a (click) = "onGoToSee(item)">
-                    <h2>{{item.name}}</h2>
-                </a>
-                <h4 class="text-muted">{{item.price}}</h4>
-                <small class="text-muted">{{item.description}}</small>
-                <div class="d-flex">
-                    <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
-                    <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
+<div class="container py-5">
+    <h2><u>Productos</u></h2> 
+    <h1><strong>Nombre de sección</strong></h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let item of products$ | async" class="col">
+            <div class = "card">
+                <div class = "image">
+                    <a [routerLink]="['/details', item.id]">
+                        <img
+                            [src]="item.image"
+                            [alt]="item.name"
+                            class="card-img-top"/>
+                    </a>
+                </div>
+                <div class="card-inner">
+                    <div class="header">
+                        <a (click) = "onGoToSee(item)">
+                            <h2>{{item.name}}</h2>
+                        </a>
+                        <h4 class="text-muted">{{item.price}}</h4>
+                        <small class="text-muted">{{item.description}}</small>
+                        <div class="d-flex">
+                            <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-primary m-1 button-mat-icon" (click) = "onGoToEdit(item)"><mat-icon>mode_edit_outline</mat-icon>Editar</button>
+                            <button *ngIf="emailUserNew == item.emailUser" type="button" class="btn btn-danger m-1 button-mat-icon" (click) = "onGoToDelete(item.id)"><mat-icon>delete</mat-icon>Borrar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-     </div>
-  </div>
+    </div>
 </div>
+
+
