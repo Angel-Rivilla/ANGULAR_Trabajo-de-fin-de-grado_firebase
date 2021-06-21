@@ -2,7 +2,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { fromEvent, Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import{ AngularFireAuth} from '@angular/fire/auth';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -18,12 +18,18 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 export class SidenavComponent implements OnInit {
 
-botonLogin = 0;
+//CONTROL SCROLL
+shownav = true;
+x= fromEvent(document, 'scroll');
+otherScroll = window.pageYOffset;
 
+//LOGIN
+botonLogin = 0;
 public isLogged = false;
 public user:any;
 public user$: Observable<any> = this.authSvc.afAuth.user;
 
+//BOTON AYUDA
 estadoAyuda = false;
 opened = false;
 
@@ -43,7 +49,19 @@ opened = false;
     password: new FormControl(''),
   })
 
-  constructor(private authSvc: AuthService, private router:Router,public modal: NgbModal){}
+  constructor(private authSvc: AuthService, private router:Router,public modal: NgbModal){
+    this.x.subscribe((res: any)=>{
+      const scroll = res.target.documentElement.scrollTop;
+      console.log(scroll);
+      if(scroll > 100){
+        this.shownav = false;
+      }
+      if(scroll < this.otherScroll){
+        this.shownav = true;
+      } 
+     this.otherScroll = scroll;
+    })
+  }
   async ngOnInit(){
     this.user = await this.authSvc.getCurrentUser();
     if(this.user){
