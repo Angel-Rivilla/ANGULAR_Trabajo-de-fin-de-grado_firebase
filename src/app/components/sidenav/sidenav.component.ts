@@ -56,7 +56,7 @@ fillerNav = [
     this.x.subscribe((res: any)=>{
       const scroll = res.target.documentElement.scrollTop;
       console.log(scroll);
-      if(scroll > 23.5){
+      if(scroll > 24){
         this.shownav = false;
       } else if(scroll == 0){
         this.shownav = true;
