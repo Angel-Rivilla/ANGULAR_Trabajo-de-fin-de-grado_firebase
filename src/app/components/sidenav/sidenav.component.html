@@ -28,7 +28,106 @@
     </div>
 </ng-template>
 
-<nav *ngIf = "shownav == true" class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top" style="height: 10vh">
+<div mode="push" class = "fixed-top">
+  <div style="background-color: #4a4a4a"><span>Hola</span></div>
+  <nav *ngIf = "shownav == true" class="navbar navbar-expand-md navbar-dark navbarPrincipal" style="height: 10vh">
+        <div class="container-fluid">
+              <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item active topnatvarcenter">
+                    <a class="nav-link" [routerLink] = "['/']" >Home
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  
+                  <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
+                    <li class="nav-item active topnatvarcenter">
+                      <a class="nav-link" [routerLink] = "['services']" >Services
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item active topnatvarcenter" *ngIf="user">
+                      <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item active topnatvarcenter">
+                      <a class="nav-link button-mat-icon" (click) = "helpControl()">
+                        <mat-icon>help</mat-icon>
+                        <span style="margin-top: 3px">Ayuda</span>
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item active topnatvarcenter" *ngIf="user">
+                      <a class="nav-link" (click) = "onLogout()" style= "cursor: pointer">Logout
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item active topnatvarcenter" *ngIf="user">
+                      <a class="nav-link button-mat-icon" [routerLink] = "['cart']">
+                        <mat-icon >shopping_cart</mat-icon>
+                        <span class="visually-hidden">(current)</span>
+                      </a>
+                    </li>
+                  </ul>
+                </ul>
+                
+                <ng-template #login>
+                  <ul class="navbar-nav mx-auto ">
+                      <li class="nav-item active topnatvarcenter">
+                        <a class="nav-link" [routerLink] = "['services']" >Services
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
+                      <li class="nav-item active topnatvarcenter">
+                        <a class="nav-link" [routerLink] = "['shop']" style= "cursor: pointer">Shop
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
+                      
+                      <li class="nav-item active topnatvarcenter">  
+                        <a class="nav-link button-mat-icon" (click)="helpControl()">
+                          <mat-icon>help</mat-icon>
+                          <span style="margin-top: 3px">Ayuda</span>
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
+
+                      <li class="nav-item active topnatvarcenter">
+                        <a type="button" class="nav-link" (click)="openLG(contenido); botonLogin=0">Identificarse
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
+
+                        <span class="nav-link">|</span>
+
+                      <li class="nav-item active topnatvarcenter">
+                        <a type="button" class="nav-link" (click)="openLG(contenido); botonLogin=1">Crear cuenta
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
+
+                      <li class="nav-item active topnatvarcenter">
+                        <a class="nav-link button-mat-icon" [routerLink] = "['cart']" style= "cursor: pointer">
+                          <mat-icon>shopping_cart</mat-icon>
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                  </ul>
+                </ng-template>
+              </div>
+        </div>
+  </nav>
+</div>
+
+<nav *ngIf = "shownav == false" class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top" style="height: 10vh">
       <div class="container-fluid">
             <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
@@ -124,57 +223,7 @@
       </div>
 </nav>
 
-<nav *ngIf = "shownav == false" class="navbar navbar-expand-md navbar-dark navbarPrincipal fixed-top" style="height: 10vh">
-      <div class="container-fluid">
-            <a class="navbar-brand" (click)="sidenavControl()" style= "cursor: pointer"><span class="navbar-toggler-icon"></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item active topnatvarcenter">
-                  <a class="nav-link" [routerLink] = "['/']" >Home
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
-                
-                <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
-                  
-                  <li class="nav-item active topnatvarcenter" *ngIf="user">
-                    <a class="nav-link button-mat-icon" [routerLink] = "['cart']">
-                      <mat-icon >shopping_cart</mat-icon>
-                      <span class="visually-hidden">(current)</span>
-                    </a>
-                  </li>
-                </ul>
-              </ul>
-              
-              <ng-template #login>
-                <ul class="navbar-nav mx-auto ">
-                    <li class="nav-item active topnatvarcenter">
-                      <a class="nav-link button-mat-icon" [routerLink] = "['cart']" style= "cursor: pointer">
-                        <mat-icon>shopping_cart</mat-icon>
-                        <span class="visually-hidden">(current)</span>
-                      </a>
-                  </li>
-                </ul>
-              </ng-template>
-
-              <ng-template #loginLateral>
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item topnatvarcenter">
-                      <a class="nav-link" [routerLink] = "['/user/login']" (click)="opened=false">Login
-                        <span class="visually-hidden">(current)</span>
-                      </a>
-                    </li>
-                </ul>
-              </ng-template>
-            </div>
-      </div>
-</nav>
-
-<mat-sidenav-container style="height: 90vh; margin-top: 10vh">
+<mat-sidenav-container style="height: 90vh; margin-top: 13vh">
   <mat-sidenav  mode="over" [(opened)] = "opened">
 
     <mat-nav-list>

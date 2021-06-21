@@ -100,6 +100,7 @@ opened = false;
     this.modal.open(contenido, {size:'lg'});
   }
 
+
   //LOGIN
   async onLogin(){
     const {email, password} = this.loginForm.value;
