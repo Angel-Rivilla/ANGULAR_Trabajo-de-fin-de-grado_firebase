@@ -2,6 +2,7 @@
     <div class="modal-header" style = "background-color: whitesmoke">
         <span [ngClass]="botonLogin==0 ? 'colorPopUpActive': 'colorPopUpInactive'" type="button" (click) = "botonLogin = 0" class="modal-title tittlePopUp"> IDENTIFICARSE </span>
         <span [ngClass]="botonLogin==1 ? 'colorPopUpActive': 'colorPopUpInactive'" type="button" (click) = "botonLogin = 1" class="modal-title tittlePopUp"> NUEVA CUENTA </span>
+        
         <mat-icon class ="close" aria-label="close" type="button" (click) ="modal.dismiss()">close</mat-icon>
     </div>
     

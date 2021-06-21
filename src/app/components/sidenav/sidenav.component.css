@@ -68,3 +68,14 @@ button{
   margin-left: 23.66667%;
 
 }
+
+.desactivarScroll{
+  overflow-y: hidden;
+
+}
+
+.activarScroll{
+
+  overflow-y: scroll;
+
+}
