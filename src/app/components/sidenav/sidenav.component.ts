@@ -31,11 +31,14 @@ public user$: Observable<any> = this.authSvc.afAuth.user;
 
 //BOTON AYUDA
 estadoAyuda = false;
+sidenavPhone = false;
+tituloSidenav:string = '';
 opened = false;
 
-  fillerNav = [
-    {name: "Home", route: "", icon: "home"},
-  ]
+//LATERAL CONTENT
+fillerNav = [
+  {name: "Home", route: "", icon: "home"},
+]
 
   //FORM LOGIN
   loginForm = new FormGroup({
@@ -53,13 +56,13 @@ opened = false;
     this.x.subscribe((res: any)=>{
       const scroll = res.target.documentElement.scrollTop;
       console.log(scroll);
-      if(scroll > 100){
+      if(scroll > 23.5){
         this.shownav = false;
-      }
-      if(scroll < this.otherScroll){
+      } else if(scroll == 0){
         this.shownav = true;
-      } 
-     this.otherScroll = scroll;
+      }
+      this.otherScroll = scroll;
+      
     })
   }
   async ngOnInit(){
@@ -94,6 +97,7 @@ opened = false;
       this.estadoAyuda = false;
      }
   }
+
 
   //LOGIN Y REGISTRO
   openLG(contenido: any){
