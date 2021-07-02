@@ -10,3 +10,9 @@
   background-color: lightcoral;
   width: 200px;
 }
+
+.topnatvarcenter{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -56,6 +56,9 @@ import { ProductEditComponent } from './components/shop/product-edit/product-edi
 import { ProductFormComponent } from './components/shop/product-form/product-form.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ThemeService } from './shared/services/theme.service';
+import { ThemeComponent } from './components/theme/theme.component';
+import { StyleManagerService } from './shared/services/style-manager.service';
 
 
 
@@ -79,7 +82,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     FormSearchComponent,
     ProductAddComponent,
     ProductEditComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ThemeComponent
   ],
   imports: [
     MatTableModule,
@@ -113,7 +117,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, StyleManagerService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

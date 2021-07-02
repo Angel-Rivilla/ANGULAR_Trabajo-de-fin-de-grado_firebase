@@ -1,5 +1,5 @@
 
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {EventEmitter, Input, Output, Component, OnInit} from '@angular/core';
 
 import { Router } from '@angular/router';
 import { fromEvent, Observable } from 'rxjs';
@@ -7,6 +7,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import{ AngularFireAuth} from '@angular/fire/auth';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
+
+import { Option } from 'src/app/shared/services/option.model';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 
 
 @Component({
@@ -52,7 +55,7 @@ fillerNav = [
     password: new FormControl(''),
   })
 
-  constructor(private authSvc: AuthService, private router:Router,public modal: NgbModal){
+  constructor(private authSvc: AuthService, private router:Router,public modal: NgbModal, public themeService: ThemeService){
     this.x.subscribe((res: any)=>{
       const scroll = res.target.documentElement.scrollTop;
       console.log(scroll);
@@ -70,6 +73,7 @@ fillerNav = [
     if(this.user){
       this.isLogged=true;
     }
+    
   }
 
   async onLogout(){
@@ -132,6 +136,5 @@ fillerNav = [
     
     }
   }
-
 
 }

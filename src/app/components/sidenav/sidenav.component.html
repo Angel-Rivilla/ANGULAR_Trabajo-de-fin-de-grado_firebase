@@ -29,15 +29,13 @@
     </div>
 </ng-template>
 
+
 <div *ngIf = "shownav == true">
   <div class= "topnatvarcenter" *ngIf="estadoAyuda == true" style="background-color: black; height: 12vh">
     <span >Hola</span>
     <mat-icon type= "button" (click)= "estadoAyuda = false">close</mat-icon>
   </div>
   
-  <div class= "topnatvarcenter" style="background-color: #4a4a4a; height: 6vh">
-    <span>Hola</span>
-  </div>
 
   <nav class="navbar navbar-expand-md navbar-dark navbarPrincipal" style="height: 10vh">
         <div class="container-fluid">
@@ -244,6 +242,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content style = "overflow: initial">
+  <mat-sidenav-content >
+    
   </mat-sidenav-content>
 <mat-sidenav-container>

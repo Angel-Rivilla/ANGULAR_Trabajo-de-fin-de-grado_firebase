@@ -1,6 +1,47 @@
+<ng-template #contenido let-modal>
+    <div class="modal-header" style = "background-color: whitesmoke">
+        <span> Modifica a tu gusto </span>
+        
+        <mat-icon class ="close" aria-label="close" type="button" (click) ="modal.dismiss()">close</mat-icon>
+    </div>
+    
+    <div class="modal-body">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" (click)="modal.close(); colorVerde = true;">
+            <label class="form-check-label" for="">Verde</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" (click)="modal.close(); fontInc = true;">
+            <label class="form-check-label" for="">Aumentar Tamaño</label>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary m-1 btn-sm" (click) = "modal.close(); fontInc = false; colorVerde = false">Restablecer ajustes</button>
+        <button class="btn btn-danger m-1 btn-sm" (click) = "modal.close()">Terminar</button>
+    </div>
+</ng-template>
+
+<div class= "topnatvarcenter" style="display: flex; font-size: 13px; color: white; background-color: #4a4a4a; height: 6vh">
+
+    <div style ="margin-left: 10px">
+        <span>
+            Edit
+            <mat-icon style="font-size: 15px" *ngIf = "botonMenuColor == 0" type ="button" (click) = "openLG(contenido)">arrow_drop_down</mat-icon>
+        </span>
+    </div>
+   
+</div>
 
 <app-sidenav></app-sidenav>
-<router-outlet></router-outlet>
+
+<div [ngStyle]="{'background-color': colorVerde == false ? 'white' : 'green',
+                'font-size': fontInc == false ? '12px' : '25px'}">
+    
+
+    <router-outlet></router-outlet>
+</div>
 
 
 
